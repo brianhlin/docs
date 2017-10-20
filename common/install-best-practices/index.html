@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Install Best Practices - OSG Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Install Best Practices";
+    var mkdocs_page_input_path = "common/install-best-practices.md";
+    var mkdocs_page_url = "/common/install-best-practices/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../site-planning/">Site Planning</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Compute Element</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/htcondor-ce-overview/">HTCondor-CE Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/install-htcondor-ce/">Install HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/job-router-recipes/">Job Router Recipes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/troubleshoot-htcondor-ce/">Troubleshooting HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/submit-htcondor-ce/">Submitting to HTCondor-CE</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Worker Node</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/using-wn/">Worker Node Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn/">Worker Node (RPM install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-tarball/">Worker Node (tarball install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-oasis/">Worker Node (OASIS install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-cvmfs/">CVMFS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-singularity/">Singularity</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Data</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../data/frontier-squid/">Install HTTP Cache</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/update-oasis/">Update OASIS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/external-oasis-repos/">External OASIS repositories</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/gridftp/">Install GridFTP Server</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/load-balanced-gridftp/">Install Load Balanced GridFTP</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-gridftp-xrootd/">Install GridFtp XRootD</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/hadoop-overview/">Hadoop Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-hadoop-2-0-0/">Hadoop</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/xrootd-overview/">XRootD Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-xroot-client/">Install XRootD Client</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-xrootd/">Install XRootD</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Security</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../security/lcmaps-voms-authentication/">LCMAPS-VOMS authentication</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/host-certs/">Host Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/user-certs/">User Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/osg-ca-manage/">Managing CAs</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Common</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Install Best Practices</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#installation-best-practices">Installation Best Practices</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#about-this-document">About This Document</a></li>
+        
+            <li><a class="toctree-l4" href="#install-yum-priorities">Install yum-priorities</a></li>
+        
+            <li><a class="toctree-l4" href="#automatic-updates">Automatic Updates</a></li>
+        
+            <li><a class="toctree-l4" href="#troubleshooting">Troubleshooting</a></li>
+        
+            <li><a class="toctree-l4" href="#considerations-for-large-sites">Considerations for Large Sites</a></li>
+        
+            <li><a class="toctree-l4" href="#repository-mirrors">Repository Mirrors</a></li>
+        
+            <li><a class="toctree-l4" href="#ca-certificate-installation-considerations">CA Certificate Installation Considerations</a></li>
+        
+            <li><a class="toctree-l4" href="#certificate-revocation-list-crl-installationupdate">Certificate Revocation List (CRL) Installation/Update</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../ca/">CA Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../osg-ca-certs-updater/">OSG CA Certificates Updater</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../yum/">Yum Repos</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../openjdk7/">Java 7</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Usage Guides</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../pki-cli/">Certificate Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/configuration-with-osg-configure/">Configuration with OSG-Configure</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Other</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../other/gsissh/">GSI-enabled SSH</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-gwms-frontend/">GlideinWMS Frontend</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-cvmfs-stratum1/">Install a CVMFS Stratum 1</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/network-performance-toolkit/">Network Performance Toolkit</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/notes/">Release Notes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release_series/">OSG Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/supported_platforms/">Supported Platforms</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-osg-upcoming-software/">OSG upcoming software</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/yum-basics/">Yum Basics</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/signing/">RPM Signing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/contrib/">Contrib Software</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Monitoring</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv/">Install RSV</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/advanced-rsv-configuration/">Advanced RSV Configuration</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/rsv-control/">Manage RSV via rsv-control</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv-gwms-tester/">RSV GlideinWMS Tester</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Deprecated Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../data/bestman-install/">BeStMan Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-bestman-xrootd/">BeStMan Xrootd SE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/edg-mkgridmap/">EDG-Mkgridmap Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/install-gums/">GUMS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-glexec/">Worker node glexec Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-voms/">Install VOMS</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../help/">Get Help</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Common &raquo;</li>
+        
+      
+    
+    <li>Install Best Practices</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/edit/master/docs/common/install-best-practices.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installation-best-practices"><strong>Installation Best Practices</strong><a class="headerlink" href="#installation-best-practices" title="Permanent link">&para;</a></h1>
+<h2 id="about-this-document">About This Document<a class="headerlink" href="#about-this-document" title="Permanent link">&para;</a></h2>
+<p>This document covers best practices to be used in installing software packages or security certificates on large numbers of hosts. It assumes you understand <a href="../yum/">YUM/RPM Basics</a>.</p>
+<h2 id="install-yum-priorities">Install yum-priorities<a class="headerlink" href="#install-yum-priorities" title="Permanent link">&para;</a></h2>
+<p>We use <code>yum</code> priorities to ensure that we get the right packages from the OSG repositories. Please install it:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum install yum-priorities
+</pre></div>
+
+
+<p>There is <a href="http://wiki.centos.org/PackageManagement/Yum/Priorities">good documentation</a> in the wild about yum priorities, but we'll summarize the essential bits for you.</p>
+<p>The basic idea of yum priorities is that if a package is found in two repositories, priorities will influence how yum chooses which package to install. We want the OSG software repository to be chosen instead of the EPEL repository so software, such as Globus, comes from our repository instead of the EPEL repository. (This is important because you will have installation errors if you get the EPEL Globus.)</p>
+<p>Yum priorities is a <em>yum plugin</em>. Once enabled, you can set the priority of each repository (located in /etc/yum.repos.d) The lower the numerical priority, the better the priority. The default priority for a repository when it's not specified is 99. We set the priority for the OSG repository to be 98, as you can see here:</p>
+<div class="codehilite"><pre><span></span>root@host # cat /etc/yum.repos.d/osg.repo
+[osg]
+name=OSG Software for Enterprise Linux 5 - $basearch
+mirrorlist=http://repo.grid.iu.edu/mirror/osg-release/$basearch
+failovermethod=priority
+priority=<span style="color:red">98</span>
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-OSG
+</pre></div>
+
+
+<p>You can adjust these priorities if you have special needs at your site.</p>
+<h2 id="automatic-updates">Automatic Updates<a class="headerlink" href="#automatic-updates" title="Permanent link">&para;</a></h2>
+<p>We strongly recommend against automatic updates for production services. You want to only change software versions during a controlled downtime (or, at least, while a human is watching); we strive to thoroughly test software updates, but cannot guarantee new version of software will not be problematic for your site.</p>
+<p>For testbeds, automatic updates are suggested.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>Sometimes when installing, you will get an error like this:</p>
+<div class="codehilite"><pre><span></span><span class="gp">http://ftp1.scientificlinux.org/linux/scientific/54/x86_64/updates/security/repodata/filelists.sqlite.bz2: <span style="color:red"></span><span class="o">[</span>Errno -1<span class="o">]</span> Metadata file does not match checksum</span>
+</pre></div>
+
+
+<p>This often indicates that you have out of date information, cached by <code>yum</code>. The following command will clear the out of date information, and you can try again:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum --enablerepo<span class="o">=</span><span class="s1">&#39;*&#39;</span> clean all
+</pre></div>
+
+
+<h2 id="considerations-for-large-sites">Considerations for Large Sites<a class="headerlink" href="#considerations-for-large-sites" title="Permanent link">&para;</a></h2>
+<p>While <code>yum</code> is a wonderful tool for installing software on a single server, it's a poor tool to install the same version of the software on many hosts. We <strong>strongly</strong> recommend a cluster management tool; as far as we know, all cluster management tools provide a mechanism to create a local yum repository and have all your worker nodes use that.</p>
+<p>If you have more than 20 worker nodes, we have the following advice:</p>
+<ul>
+<li>Do <strong>not</strong> use one of the OSG repositories directly for worker node installations; build a local mirror instead. (See below).</li>
+<li>Distribute CRLs to the worker nodes using an HTTP proxy.</li>
+</ul>
+<p>Both items are covered in this document.</p>
+<p>In the future, we will be providing a mechanism for distributing CAs and CRLs via a shared file system; this is not quite finished. If you choose to do this, remember that your security infrastructure will only be as safe and reliable as the shared filesystem!</p>
+<h2 id="repository-mirrors">Repository Mirrors<a class="headerlink" href="#repository-mirrors" title="Permanent link">&para;</a></h2>
+<p>A local yum mirror allows you to reduce the amount of external bandwidth used when updating or installing packages.</p>
+<p>Add the following to a file in <code>/etc/cron.d</code>:</p>
+<div class="codehilite"><pre><span></span><span class="c"><span style="color:red">RANDOM</span> * * * * root rsync -aH rsync://repo.opensciencegrid.org/osg/ /var/www/html/osg/</span>
+</pre></div>
+
+
+<p>Or, to mirror only a single repository:</p>
+<div class="codehilite"><pre><span></span><span class="c"><span style="color:red">RANDOM</span> * * * * root rsync -aH rsync://repo.opensciencegrid.org/osg/<span style="color:red">OSG_RELEASE</span>/el6/development /var/www/html/osg/<span style="color:red">OSG_RELEASE</span>/el6</span>
+</pre></div>
+
+
+<p>Replace <span style="color:red">RANDOM</span> with a number between 0 and 59.</p>
+<p>Replace <span style="color:red">OSG_RELEASE</span> with the OSG release you want to use (e.g. '3.3', or '3.4').</p>
+<p>On your worker node, you can replace the <code>baseurl</code> line of <code>/etc/yum.repos.d/osg.repo</code> with the appropriate URL for your mirror.</p>
+<p>If you are interested in having your mirror be part of the OSG's default set of mirrors, <a href="https://ticket.opensciencegrid.org/">please file a GOC ticket</a>.</p>
+<h2 id="ca-certificate-installation-considerations">CA Certificate Installation Considerations<a class="headerlink" href="#ca-certificate-installation-considerations" title="Permanent link">&para;</a></h2>
+<p>CAs are distributed in two ways:</p>
+<ul>
+<li>As an RPM that contains the set of CAs. There are several such RPMs corresponding to different sets of CAs.</li>
+<li>Through direct downloads from GOC with the <code>osg-update-certs</code> tool (provided by the <code>osg-ca-scripts</code> RPM).</li>
+</ul>
+<p>As long as you use one of these two mechanisms, the OSG software will install successfully.</p>
+<h2 id="certificate-revocation-list-crl-installationupdate">Certificate Revocation List (CRL) Installation/Update<a class="headerlink" href="#certificate-revocation-list-crl-installationupdate" title="Permanent link">&para;</a></h2>
+<p>CRLs are not distributed via <code>yum</code>. Instead, we provide the <code>fetch-crl</code> <a href="../../common/ca/#managing-certificate-revocation-lists">tool</a> that downloads CRLs to the CA directory.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ca/" class="btn btn-neutral float-right" title="CA Certificates">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../security/osg-ca-manage/" class="btn btn-neutral" title="Managing CAs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../security/osg-ca-manage/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ca/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

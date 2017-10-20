@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Install GridFTP Server - OSG Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Install GridFTP Server";
+    var mkdocs_page_input_path = "data/gridftp.md";
+    var mkdocs_page_url = "/data/gridftp/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../site-planning/">Site Planning</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Compute Element</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/htcondor-ce-overview/">HTCondor-CE Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/install-htcondor-ce/">Install HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/job-router-recipes/">Job Router Recipes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/troubleshoot-htcondor-ce/">Troubleshooting HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/submit-htcondor-ce/">Submitting to HTCondor-CE</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Worker Node</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/using-wn/">Worker Node Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn/">Worker Node (RPM install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-tarball/">Worker Node (tarball install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-oasis/">Worker Node (OASIS install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-cvmfs/">CVMFS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-singularity/">Singularity</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Data</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../frontier-squid/">Install HTTP Cache</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../update-oasis/">Update OASIS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../external-oasis-repos/">External OASIS repositories</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Install GridFTP Server</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#installing-and-maintaining-a-gridftp-server">Installing and Maintaining a GridFTP Server</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#about-this-guide">About This Guide</a></li>
+        
+            <li><a class="toctree-l4" href="#before-starting">Before Starting</a></li>
+        
+            <li><a class="toctree-l4" href="#installing-gridftp">Installing GridFTP</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-gridftp">Configuring GridFTP</a></li>
+        
+            <li><a class="toctree-l4" href="#managing-gridftp">Managing GridFTP</a></li>
+        
+            <li><a class="toctree-l4" href="#validating-gridftp">Validating GridFTP</a></li>
+        
+            <li><a class="toctree-l4" href="#getting-help">Getting Help</a></li>
+        
+            <li><a class="toctree-l4" href="#reference">Reference</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../load-balanced-gridftp/">Install Load Balanced GridFTP</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-gridftp-xrootd/">Install GridFtp XRootD</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../hadoop-overview/">Hadoop Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-hadoop-2-0-0/">Hadoop</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../xrootd-overview/">XRootD Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xroot-client/">Install XRootD Client</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xrootd/">Install XRootD</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Security</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../security/lcmaps-voms-authentication/">LCMAPS-VOMS authentication</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/host-certs/">Host Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/user-certs/">User Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/osg-ca-manage/">Managing CAs</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Common</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/install-best-practices/">Install Best Practices</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/ca/">CA Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/osg-ca-certs-updater/">OSG CA Certificates Updater</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/yum/">Yum Repos</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/openjdk7/">Java 7</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Usage Guides</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/pki-cli/">Certificate Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/configuration-with-osg-configure/">Configuration with OSG-Configure</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Other</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../other/gsissh/">GSI-enabled SSH</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-gwms-frontend/">GlideinWMS Frontend</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-cvmfs-stratum1/">Install a CVMFS Stratum 1</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/network-performance-toolkit/">Network Performance Toolkit</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/notes/">Release Notes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release_series/">OSG Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/supported_platforms/">Supported Platforms</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-osg-upcoming-software/">OSG upcoming software</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/yum-basics/">Yum Basics</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/signing/">RPM Signing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/contrib/">Contrib Software</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Monitoring</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv/">Install RSV</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/advanced-rsv-configuration/">Advanced RSV Configuration</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/rsv-control/">Manage RSV via rsv-control</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv-gwms-tester/">RSV GlideinWMS Tester</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Deprecated Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../bestman-install/">BeStMan Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-bestman-xrootd/">BeStMan Xrootd SE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/edg-mkgridmap/">EDG-Mkgridmap Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/install-gums/">GUMS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-glexec/">Worker node glexec Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-voms/">Install VOMS</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../common/help/">Get Help</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data &raquo;</li>
+        
+      
+    
+    <li>Install GridFTP Server</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/edit/master/docs/data/gridftp.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installing-and-maintaining-a-gridftp-server">Installing and Maintaining a GridFTP Server<a class="headerlink" href="#installing-and-maintaining-a-gridftp-server" title="Permanent link">&para;</a></h1>
+<h2 id="about-this-guide">About This Guide<a class="headerlink" href="#about-this-guide" title="Permanent link">&para;</a></h2>
+<p>This page explains how to install the stand-alone Globus GridFTP server.</p>
+<p>The GridFTP package contains components necessary to set up a stand-alone gsiftp server and tools used to monitor and report its performance. A stand-alone GridFTP server might be used under the following circumstances:</p>
+<ul>
+<li>You are serving VOs that use storage heavily (CMS, ATLAS, CDF, and D0) and your site has more than 250 cores</li>
+<li>Your site will be managing more than 50 TB of disk space</li>
+<li>A simple front-end to a filesystem allowing access over WAN - for example NFS.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is for a standalone GridFTP server on top of POSIX storage.  <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/InstallHadoop200SE">See this page</a> for installation and configuration of a GridFTP server on top of the Hadoop Distributed File System.</p>
+</div>
+<h2 id="before-starting">Before Starting<a class="headerlink" href="#before-starting" title="Permanent link">&para;</a></h2>
+<p>Before starting the installation process you will need to fulfill these prerequisites.</p>
+<ul>
+<li>Ensure the host has <a href="../../release/supported_platforms/">a supported operating system</a></li>
+<li>Obtain root access to the host</li>
+<li>Prepare <a href="../../common/yum/">the required Yum repositories</a></li>
+<li>Install <a href="../../common/ca/">CA certificates</a></li>
+<li>Service certificate: The GridFTP service uses a host certificate at <code>/etc/grid-security/hostcert.pem</code> and an accompanying key at <code>/etc/grid-security/hostkey.pem</code></li>
+<li>Network ports: GridFTP listens on TCP port 2811 and the list of ports configured by the <code>GLOBUS_TCP_SOURCE_RANGE</code> environment variable.</li>
+</ul>
+<h2 id="installing-gridftp">Installing GridFTP<a class="headerlink" href="#installing-gridftp" title="Permanent link">&para;</a></h2>
+<p>First, you will need to install the GridFTP meta-package:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum install osg-gridftp
+</pre></div>
+
+
+<h2 id="configuring-gridftp">Configuring GridFTP<a class="headerlink" href="#configuring-gridftp" title="Permanent link">&para;</a></h2>
+<h3 id="configuring-authentication">Configuring authentication<a class="headerlink" href="#configuring-authentication" title="Permanent link">&para;</a></h3>
+<p>In OSG 3.3, there are three methods to manage authentication for incoming jobs: the <a href="../../security/lcmaps-voms-authentication">LCMAPS VOMS plugin</a>, <a href="../../security/edg-mkgridmap">edg-mkgridmap</a> and <a href="../../security/install-gums">GUMS</a>. Of these, GUMS has the most features and capabilities. The LCMAPS VOMS plugin is the new OSG-preferred authentication, offering the simplicity of edg-mkgridmap and many of GUMS' rich feature set. If you need to support "<a href="https://www.racf.bnl.gov/Facility/GUMS/1.4/use_configuration.html">pool accounts</a>", GUMS is the only option with that capability.</p>
+<p>In OSG 3.4, the LCMAPS VOMS plugin is the only available authentication solution.</p>
+<h4 id="authentication-with-the-lcmaps-voms-plugin">Authentication with the LCMAPS VOMS plugin<a class="headerlink" href="#authentication-with-the-lcmaps-voms-plugin" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Add the following line to <code>/etc/sysconfig/globus-gridftp-server</code>:</p>
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">LLGT_VOMS_ENABLE_CREDENTIAL_CHECK</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+
+
+<p>This should <em>only</em> be done for OSG 3.3; it is unnecessary for OSG 3.4.</p>
+</li>
+<li>
+<p>Follow the instructions in <a href="../../security/lcmaps-voms-authentication">the LCMAPS VOMS plugin installation and configuration document</a> to prepare the LCMAPS VOMS plugin.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the suggested mechanism for all new installs.</p>
+</div>
+<h4 id="authentication-with-edg-mkgridmap">Authentication with edg-mkgridmap<a class="headerlink" href="#authentication-with-edg-mkgridmap" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of the June 2017 release of OSG 3.4.0, this software is officially deprecated. Support is scheduled to end as of May 2018.</p>
+</div>
+<p>By default, GridFTP uses a gridmap file, found in <code>/etc/grid-security/grid-mapfile</code>. This is the file generated by <code>edg-mkgridmap</code> if you follow the default <a href="../../security/edg-mkgridmap">install instructions</a>.  No further configuration is needed.</p>
+<h4 id="authentication-with-gums">Authentication with GUMS<a class="headerlink" href="#authentication-with-gums" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of the June 2017 release of OSG 3.4.0, this software is officially deprecated. Support is scheduled to end as of May 2018.</p>
+</div>
+<p>If you want to use GUMS security (recommended), you will need to enable it using the following steps:</p>
+<ol>
+<li>
+<p>Edit <code>/etc/grid-security/gsi-authz.conf</code> and uncomment the globus callout.</p>
+<div class="codehilite"><pre><span></span>globus_mapping liblcas_lcmaps_gt4_mapping.so lcmaps_callout
+</pre></div>
+
+
+<p>Note that this used to be the full path to the library (<code>/usr/lib64</code> or <code>/usr/lib</code>), but now we rely on the linker for proper resolution in this file.</p>
+</li>
+<li>
+<p>Edit <code>/etc/lcmaps.db</code> to include your service endpoint:</p>
+<div class="codehilite"><pre><span></span>...
+gumsclient = &quot;lcmaps_gums_client.mod&quot;
+             &quot;-resourcetype ce&quot;
+             &quot;-actiontype execute-now&quot;
+             &quot;-capath /etc/grid-security/certificates&quot;
+             &quot;-cert   /etc/grid-security/hostcert.pem&quot;
+             &quot;-key    /etc/grid-security/hostkey.pem&quot;
+             &quot;--cert-owner root&quot;
+# Change this URL to your GUMS server
+             &quot;--endpoint https://<span style="color:red">gums.example.com:8443</span>/gums/services/GUMSXACMLAuthorizationServicePort&quot;
+</pre></div>
+
+
+</li>
+</ol>
+<h3 id="enabling-gratia-gridftp-transfer-probe">Enabling Gratia GridFTP transfer probe<a class="headerlink" href="#enabling-gratia-gridftp-transfer-probe" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/GratiaTransferProbe">Gratia GridFTP probe</a> collects the information about the Gridftp transfers and forwards it to central Gratia collector. You need to enable the probe first. To do this, edit <code>/etc/gratia/gridftp-transfer/ProbeConfig</code> to set:</p>
+<div class="codehilite"><pre><span></span>EnableProbe=&quot;1&quot;
+</pre></div>
+
+
+<p>All other configuration settings should be suitable for most purposes. However, you can edit them if needed. The probe runs every 30 minutes as a cron job.</p>
+<h3 id="optional-configuration">Optional configuration<a class="headerlink" href="#optional-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="modifying-the-environment">Modifying the environment<a class="headerlink" href="#modifying-the-environment" title="Permanent link">&para;</a></h4>
+<p>Environment variables are stored in <code>/etc/sysconfig/globus-gridftp-server</code> which is sourced on service startup.  If you want to change LCMAPS log levels, or GridFTP port ranges, you can edit them there.</p>
+<div class="codehilite"><pre><span></span><span class="c1">#Uncomment and modify for firewalls</span>
+<span class="c1">#export GLOBUS_TCP_PORT_RANGE=min,max</span>
+<span class="c1">#export GLOBUS_TCP_SOURCE_RANGE=min,max</span>
+</pre></div>
+
+
+<p>Note that the variables <code>GLOBUS_TCP_PORT_RANGE</code> and <code>GLOBUS_TCP_SOURCE_RANGE</code> can be set here to allow GridFTP to navigate around firewall rules (these affect the inbound and outbound ports, respectively).</p>
+<p>To troubleshoot LCMAPS authorization, you can add the following to <code>/etc/sysconfig/globus-gridftp-server</code> and choose a higher debug level:</p>
+<div class="codehilite"><pre><span></span># level 0: no messages, 1: errors, 2: also warnings, 3: also notices,
+#  4: also info, 5: maximum debug
+LCMAPS_DEBUG_LEVEL=2
+</pre></div>
+
+
+<p>Output goes to <code>/var/log/messages</code> by default. Do not set logging to 5 on any production systems as that may cause systems to slow down significantly or become unresponsive.</p>
+<h4 id="configuring-a-multi-homed-server">Configuring a multi-homed server<a class="headerlink" href="#configuring-a-multi-homed-server" title="Permanent link">&para;</a></h4>
+<p>The GridFTP uses control connections, data connections and IPC connections. By default it listens in all interfaces but this can be changed by editing the configuration file <code>/etc/gridftp.conf</code>.</p>
+<p>To use a single interface you can set <code>hostname</code> to the Hostname or IP address to use:</p>
+<div class="codehilite"><pre><span></span>hostname IP-TO-USE
+</pre></div>
+
+
+<p>You can also set separately the <code>control_interface</code>, <code>data_interface</code> and <code>ipc_interface</code>.  On systems that have multiple network interfaces, you may want to associate data transfers with the fastest possible NIC available. This can be done in the GridFTP server by setting <code>data_interface</code>:</p>
+<div class="codehilite"><pre><span></span>control_interface IP-TO-USE
+data_interface IP-TO-USE
+ipc_interface IP-TO-USE
+</pre></div>
+
+
+<p>For more options available for the GridFTP server, read the comments in the configuration file (<code>/etc/gridftp.conf</code>) or see the <a href="http://www.globus.org/toolkit/docs/latest-stable/gridftp/admin/#gridftp-configuring">Globus manual</a>.</p>
+<h2 id="managing-gridftp">Managing GridFTP<a class="headerlink" href="#managing-gridftp" title="Permanent link">&para;</a></h2>
+<p>In addition to the GridFTP service itself, there are a number of supporting services in your installation. The specific services are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Software</th>
+<th align="left">Service name</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Fetch CRL</td>
+<td align="left"><code>fetch-crl-boot</code> and <code>fetch-crl-cron</code></td>
+<td align="left">See <a href="../../common/ca/#startstop-fetch-crl-a-quick-guide">CA documentation</a> for more info</td>
+</tr>
+<tr>
+<td align="left">Gratia</td>
+<td align="left"><code>gratia-probes-cron</code></td>
+<td align="left">Accounting software</td>
+</tr>
+<tr>
+<td align="left">GridFTP</td>
+<td align="left"><code>globus-gridftp-server</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="validating-gridftp">Validating GridFTP<a class="headerlink" href="#validating-gridftp" title="Permanent link">&para;</a></h2>
+<p>The GridFTP service can be validated by using globus-url-copy. You will need to run <code>grid-proxy-init</code> or <code>voms-proxy-init</code> in order to get a valid user proxy in order to communicate with the GridFTP server.</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> globus-url-copy file:///tmp/zero.source gsiftp://yourhost.yourdomain/tmp/zero
+<span class="gp">root@host #</span> <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="go">0</span>
+</pre></div>
+
+
+<p>Run the validation as an unprivileged user; when invoked as root, <code>globus-url-copy</code> will attempt to use the host certificate instead of your user certificate, with confusing results.</p>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<p>For assistance, please use <a href="../../common/help">this page</a>.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://www.globus.org/toolkit/docs/latest-stable/gridftp/admin/">Globus GridFTP administration manual</a></li>
+<li><a href="http://www.mcs.anl.gov/~mlink/tutorials/GridFTPTutorialHandout.pdf">Globus GridFTP tutorial</a></li>
+</ul>
+<h3 id="configuration-and-log-files">Configuration and Log Files<a class="headerlink" href="#configuration-and-log-files" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Service/Process</th>
+<th align="left">Configuration File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GridFTP</td>
+<td align="left"><code>/etc/sysconfig/globus-gridftp-server</code></td>
+<td align="left">Environment variables for GridFTP and LCMAPS</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><code>/usr/share/osg/sysconfig/globus-gridftp-server-plugin</code></td>
+<td align="left">Where environment variables for GridFTP plugin are included</td>
+</tr>
+<tr>
+<td align="left">Gratia Probe</td>
+<td align="left"><code>/etc/gratia/gridftp-transfer/ProbeConfig</code></td>
+<td align="left">GridFTP Gratia Probe configuration</td>
+</tr>
+<tr>
+<td align="left">Gratia Probe</td>
+<td align="left"><code>/etc/cron.d/gratia-probe-gridftp-transfer.cron</code></td>
+<td align="left">Cron tab file</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Service/Process</th>
+<th align="left">Log File</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GridFTP</td>
+<td align="left"><code>/var/log/gridftp.log</code></td>
+<td align="left">GridFTP transfer log</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><code>/var/log/gridftp-auth.log</code></td>
+<td align="left">GridFTP authorization log</td>
+</tr>
+<tr>
+<td align="left">Gratia probe</td>
+<td align="left"><code>/var/logs/gratia</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="certificates">Certificates<a class="headerlink" href="#certificates" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left">Certificate</th>
+<th align="left">User that owns certificate</th>
+<th align="left">Path to certificate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Host certificate</td>
+<td align="left"><code>root</code></td>
+<td align="left"><code>/etc/grid-security/hostcert.pem</code> and <code>/etc/grid-security/hostkey.pem</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="../../common/pki-cli/">Instructions</a> to request a service certificate.</p>
+<p>You will also need a copy of CA certificates.</p>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<p>For this package to function correctly, you will have to create the users needed for grid operation. Any Unix username that can be mapped by LCMAPS VOMS, <code>edg-mkgridmap</code>, or GUMS should be created on the GridFTP host.</p>
+<p>For example, VOs newly-added to the LCMAPS VOMS configuration will not be able to transfer files until the corresponding Unix user account is created.</p>
+<h3 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h3>
+<p>For more details on overall firewall configuration, please see our <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/FirewallInformation">firewall documentation</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Service Name</th>
+<th align="left">Protocol</th>
+<th align="left">Port Number</th>
+<th align="left">Inbound</th>
+<th align="left">Outbound</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GridFTP data channels</td>
+<td align="left">tcp</td>
+<td align="left"><code>GLOBUS_TCP_PORT_RANGE</code></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">contiguous range of ports is necessary.</td>
+</tr>
+<tr>
+<td align="left">GridFTP data channels</td>
+<td align="left">tcp</td>
+<td align="left"><code>GLOBUS_TCP_SOURCE_RANGE</code></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left">contiguous range of ports is necessary.</td>
+</tr>
+<tr>
+<td align="left">GridFTP control channel</td>
+<td align="left">tcp</td>
+<td align="left">2811</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../load-balanced-gridftp/" class="btn btn-neutral float-right" title="Install Load Balanced GridFTP">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../external-oasis-repos/" class="btn btn-neutral" title="External OASIS repositories"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../external-oasis-repos/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../load-balanced-gridftp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

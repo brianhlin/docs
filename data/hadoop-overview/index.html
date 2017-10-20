@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Hadoop Overview - OSG Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hadoop Overview";
+    var mkdocs_page_input_path = "data/hadoop-overview.md";
+    var mkdocs_page_url = "/data/hadoop-overview/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../site-planning/">Site Planning</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Compute Element</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/htcondor-ce-overview/">HTCondor-CE Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/install-htcondor-ce/">Install HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/job-router-recipes/">Job Router Recipes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/troubleshoot-htcondor-ce/">Troubleshooting HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/submit-htcondor-ce/">Submitting to HTCondor-CE</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Worker Node</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/using-wn/">Worker Node Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn/">Worker Node (RPM install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-tarball/">Worker Node (tarball install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-oasis/">Worker Node (OASIS install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-cvmfs/">CVMFS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-singularity/">Singularity</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Data</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../frontier-squid/">Install HTTP Cache</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../update-oasis/">Update OASIS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../external-oasis-repos/">External OASIS repositories</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../gridftp/">Install GridFTP Server</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../load-balanced-gridftp/">Install Load Balanced GridFTP</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-gridftp-xrootd/">Install GridFtp XRootD</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Hadoop Overview</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#hadoop-overview">Hadoop Overview</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#hadoop-introduction">Hadoop Introduction</a></li>
+        
+            <li><a class="toctree-l4" href="#hadoop-se-components">Hadoop SE Components</a></li>
+        
+            <li><a class="toctree-l4" href="#minimal-installation-0-50tb-wan-transfers-up-to-1gbps">Minimal Installation (0-50TB, WAN transfers up to 1Gbps)</a></li>
+        
+            <li><a class="toctree-l4" href="#medium-installation-50-150tb-wan-transfers-up-to-2-gbps">Medium Installation (50-150TB, WAN transfers up to 2 Gbps)</a></li>
+        
+            <li><a class="toctree-l4" href="#large-installation-150tb-wan-transfers-over-2-gbps">Large Installation (&gt;150TB, WAN transfers over 2 Gbps)</a></li>
+        
+            <li><a class="toctree-l4" href="#hadoop-security">Hadoop Security</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-hadoop-2-0-0/">Hadoop</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../xrootd-overview/">XRootD Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xroot-client/">Install XRootD Client</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xrootd/">Install XRootD</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Security</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../security/lcmaps-voms-authentication/">LCMAPS-VOMS authentication</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/host-certs/">Host Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/user-certs/">User Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/osg-ca-manage/">Managing CAs</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Common</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/install-best-practices/">Install Best Practices</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/ca/">CA Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/osg-ca-certs-updater/">OSG CA Certificates Updater</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/yum/">Yum Repos</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/openjdk7/">Java 7</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Usage Guides</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/pki-cli/">Certificate Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/configuration-with-osg-configure/">Configuration with OSG-Configure</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Other</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../other/gsissh/">GSI-enabled SSH</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-gwms-frontend/">GlideinWMS Frontend</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-cvmfs-stratum1/">Install a CVMFS Stratum 1</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/network-performance-toolkit/">Network Performance Toolkit</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/notes/">Release Notes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release_series/">OSG Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/supported_platforms/">Supported Platforms</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-osg-upcoming-software/">OSG upcoming software</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/yum-basics/">Yum Basics</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/signing/">RPM Signing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/contrib/">Contrib Software</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Monitoring</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv/">Install RSV</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/advanced-rsv-configuration/">Advanced RSV Configuration</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/rsv-control/">Manage RSV via rsv-control</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv-gwms-tester/">RSV GlideinWMS Tester</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Deprecated Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../bestman-install/">BeStMan Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-bestman-xrootd/">BeStMan Xrootd SE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/edg-mkgridmap/">EDG-Mkgridmap Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/install-gums/">GUMS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-glexec/">Worker node glexec Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-voms/">Install VOMS</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../common/help/">Get Help</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data &raquo;</li>
+        
+      
+    
+    <li>Hadoop Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/edit/master/docs/data/hadoop-overview.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hadoop-overview">Hadoop Overview<a class="headerlink" href="#hadoop-overview" title="Permanent link">&para;</a></h1>
+<h2 id="hadoop-introduction">Hadoop Introduction<a class="headerlink" href="#hadoop-introduction" title="Permanent link">&para;</a></h2>
+<p>Hadoop is a data processing framework. It is an open-source Apache Foundation project, and the main contributor is Yahoo! The framework has two main parts - job scheduling and a distributed file system, the Hadoop Distributed File System (HDFS). We currently utilize HDFS as a general-purpose file system. For this document, we'll use the words "Hadoop" and "HDFS" interchangeably, but it's nice to know the distinction.</p>
+<p>We recommend starting with <a href="http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html">HDFS architecture document</a>.</p>
+<p>Please do read through this. We will assume you have read this, or at least the important architectural portions. The file system is block-oriented; each file is broken up into 64 MB or 128 MB chunks (user configurable). These chunks are stored on data nodes and served up from there; the central namenode keeps track of the block locations, the namespace information, and block placement policies. HDFS provides POSIX-like semantics; it provides fully random-access reads and non-random-access writes. Currently, fsync and appends (after the file has been initially closed) are experimental and not available to OSG-based installs.</p>
+<h2 id="hadoop-se-components">Hadoop SE Components<a class="headerlink" href="#hadoop-se-components" title="Permanent link">&para;</a></h2>
+<p>We broadly break down the server components of the Hadoop SE into three categories: HDFS core, Grid extensions, and HDFS auxiliary. The components in each of these categories are outlined below:</p>
+<ul>
+<li>HDFS Core:<ul>
+<li>Namenode: The core metadata server of Hadoop. This is the most critical piece of the system, and there can only be one of these. This stores both the file system image and the file system journal. The namenode keeps all of the filesystem layout information (files, blocks, directories, permissions, etc) and the block locations. The filesystem layout is persisted on disk and the block locations are kept solely in memory. When a client opens a file, the namenode tells the client the locations of all the blocks in the file; the client then no longer needs to communicate with the namenode for data transfer.</li>
+<li>Datanode: This node stores copies of the blocks in HDFS. They communicate with the namenode to perform "housekeeping" such as creating new replicas, transferring blocks between datanodes, and deleting excess blocks. They also communicate with the clients to transfer data. To reach the best scalability, there should be as many datanodes as possible.</li>
+</ul>
+</li>
+<li>Grid extensions<ul>
+<li>BeStMan SRM: A generic SRM server that can be run on top of any POSIX-like filesystem. This is run in "gateway" mode, which limits the amount of the SRM protocol implemented. To date, this has been sufficient to LHC VOs.</li>
+<li>Globus GridFTP: The standard GridFTP from Globus. We use a plug-in module (using the Globus Direct Storage Interface) that allows the GridFTP process to use the HDFS C-bindings directly.</li>
+<li>Gratia probe: Gratia is an accounting system that records batch system and transfer records to a database. The records are collected by a client program called a "probe" which runs on the GridFTP server. It parses the GridFTP server's log files and creates transfer records.</li>
+<li>Xrootd server plugin: Xrootd is an extremely flexible and powerful data server popular in the high energy physics community. There exists a HDFS plugin for Xrootd; integrating with Xrootd provides a means to export HDFS securely outside the local cluster, as another Xrootd plugin provides GSI-based authentication and authorization.</li>
+</ul>
+</li>
+<li>HDFS auxiliary:<ul>
+<li>"Secondary Namenode": Perhaps more aptly called a "checkpoint server". This server downloads the file system image and journal from the namenode, merges the two together, and uploads the new file system image up to the namenode. This is done on a different server in order to reduce the memory footprint of the namenode.</li>
+<li>Hadoop Balancer: This is a script (unlike the others, which are daemons) that runs on the namenode. It requests transfers of random blocks between the datanodes. This works until all datanodes have approximately the same percentage of free space. Well-balanced datanodes are necessary for having a healthy cluster.</li>
+</ul>
+</li>
+</ul>
+<p>In addition to the server components, there are two client components:</p>
+<ul>
+<li>FUSE: This allows HDFS to be mounted as a filesystem on the worker nodes. FUSE is a Linux kernel module that allows kernel I/O calls to be translated into a call to a userspace program. In this case, a program called fuse_dfs translates the POSIX calls into HDFS C-binding calls.</li>
+<li>Hadoop Command Line Client: This command line client exposes a lot of the Unix-like calls without mounting FUSE, plus access to the non-POSIX calls (such as setting quotas and file replication levels). For example, "hadoop fs -ls /" is equivalent to "ls /mnt/hadoop" if /mnt/hadoop is the mount point of HDFS.</li>
+</ul>
+<hr />
+<ul>
+<li>Namenode: We recommend at least 8GB of RAM (minimum is 2GB RAM), preferably 16GB or more. A rough rule of thumb is 1GB per 100TB of raw disk space; the actual requirements is around 1GB per million objects (files, directories, and blocks). The CPU requirements are any modern multi-core server CPU. Typically, the namenode will only use 2-5% of your CPU.<ul>
+<li>As this is a single point of failure, the <strong>most important</strong> requirement is reliable hardware rather than high performance hardware. We suggest a node with redundant power supplies and at least 2 hard drives.</li>
+</ul>
+</li>
+<li>Secondary namenode: This node needs the same amount of RAM as the namenode for merging namespaces. It does not need to be high performance or high reliability.</li>
+<li>Datanode: Each datanode should plan to dedicate 200-500MB of RAM to HDFS. A general rule of thumb is to dedicate 1 CPU to HDFS per 5TB of disk capacity under heavily load; clusters with moderate load (i.e., mostly sequential workflows) will need less. At idle, HDFS will consume almost no CPU.</li>
+</ul>
+<h2 id="minimal-installation-0-50tb-wan-transfers-up-to-1gbps">Minimal Installation (0-50TB, WAN transfers up to 1Gbps)<a class="headerlink" href="#minimal-installation-0-50tb-wan-transfers-up-to-1gbps" title="Permanent link">&para;</a></h2>
+<p>The minimal installation would involve 5 nodes:</p>
+<p>1 hadoop-name: The namenode for the Hadoop system. Must be on private NAT. 1 hadoop-name2: This will run the HDFS secondary namenode. Must also be on private NAT. 1 hadoop-data1, hadoop-data2: Two HDFS datanodes. They will hold data for the system, so they should have sizable hard drives. These must be on the private NAT. As the Hadoop installation grows to many terabytes, this will be the only class of nodes one adds. 1 hadoop-grid: Runs the BeStMan SRM and Globus GridFTP server. Must have a public interface and a private interface.</p>
+<p>If desired, hadoop-name and hadoop-name2 may be virtualized. Prior to installation, DNS / host name resolution <strong>must</strong> work. That is, you should be able to resolve all the hadoop servers either through DNS or /etc/hosts. Because of the grid software, hadoop-grid <strong>must</strong> have reverse DNS working.</p>
+<h2 id="medium-installation-50-150tb-wan-transfers-up-to-2-gbps">Medium Installation (50-150TB, WAN transfers up to 2 Gbps)<a class="headerlink" href="#medium-installation-50-150tb-wan-transfers-up-to-2-gbps" title="Permanent link">&para;</a></h2>
+<p>For a medium install, make the following changes over the minimal install: 1 Run BeStMan on a separate machine, hadoop-srm. This host may be virtualized. 1 Run multiple GridFTP servers (2 should be fine); if possible, use 10 Gbps cards for these hosts. 1 Add many more HDFS datanodes. This usually means starting to add 1 or 2 TB hard drives to some worker nodes.</p>
+<h2 id="large-installation-150tb-wan-transfers-over-2-gbps">Large Installation (&gt;150TB, WAN transfers over 2 Gbps)<a class="headerlink" href="#large-installation-150tb-wan-transfers-over-2-gbps" title="Permanent link">&para;</a></h2>
+<p>For a large installation, make the following changes: 1 Run more GridFTP servers; plan for 800 Mbps per host with 1 Gbps card in order to have excess capacity. 1 Purchase machines suitable for HDFS datanodes. It is possible to get a 2U box with 8-12 hard drives; for many projects, this will provide a more suitable CPU to disk ratio than the 1U boxes with 2 hard drives.</p>
+<h2 id="hadoop-security">Hadoop Security<a class="headerlink" href="#hadoop-security" title="Permanent link">&para;</a></h2>
+<p>HDFS has unix-like user/group authorization, but no strict authentication. HDFS should only be exposed to a secure internal network which only non-malicious users are able to access. For users with access to the local cluster, it is not difficult at all to bypass authentication.</p>
+<p><a href="http://www.cloudera.com/blog/2009/08/14/hadoop-default-ports-quick-reference/">The default ports are listed here</a>.</p>
+<p>There are some ways to improve security of your cluster:</p>
+<ul>
+<li>Keep the namenode behind a firewall. One possibility is to run hadoop entirely on the private subnet of a cluster.</li>
+<li>Use firewalls to protect the HDFS ports (default for the datanode is 50010 and 50075; for the namenode, 50070 and 9000).</li>
+<li>For clusters utilizing FUSE, one can block outgoing connections to the HDFS ports except for user root. This means that only root-owned processes (such as FUSE-DFS) will be able to access Hadoop.<ul>
+<li>This is sufficient for grid environments, but does not protect one in the case where the attacker has physical access to the network switch.</li>
+</ul>
+</li>
+<li>There exists another option, currently untested. It is possible to limit all HDFS socket connections to SSL-based sockets. Using this to only allow known hosts to connect to HDFS and only allowing FUSE-DFS to connect on those known hosts, one might be able to satisfy even fairly stringent security folks (but not paranoid ones).</li>
+</ul>
+<p>There are three options to export your data outside your cluster:</p>
+<ul>
+<li>Globus GridFTP / SRM. This is covered in these web pages.</li>
+<li>Xrootd. Documentation is nascent.</li>
+<li>Apache HTTP (authenticated via HTTPS). This is in use at Caltech, but there isn't any documentation available.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../install-hadoop-2-0-0/" class="btn btn-neutral float-right" title="Hadoop">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../install-gridftp-xrootd/" class="btn btn-neutral" title="Install GridFtp XRootD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../install-gridftp-xrootd/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../install-hadoop-2-0-0/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Worker node glexec Install - OSG Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Worker node glexec Install";
+    var mkdocs_page_input_path = "worker-node/install-glexec.md";
+    var mkdocs_page_url = "/worker-node/install-glexec/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../site-planning/">Site Planning</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Compute Element</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/htcondor-ce-overview/">HTCondor-CE Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/install-htcondor-ce/">Install HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/job-router-recipes/">Job Router Recipes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/troubleshoot-htcondor-ce/">Troubleshooting HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/submit-htcondor-ce/">Submitting to HTCondor-CE</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Worker Node</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../using-wn/">Worker Node Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-wn/">Worker Node (RPM install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-wn-tarball/">Worker Node (tarball install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-wn-oasis/">Worker Node (OASIS install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-cvmfs/">CVMFS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-singularity/">Singularity</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Data</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../data/frontier-squid/">Install HTTP Cache</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/update-oasis/">Update OASIS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/external-oasis-repos/">External OASIS repositories</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/gridftp/">Install GridFTP Server</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/load-balanced-gridftp/">Install Load Balanced GridFTP</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-gridftp-xrootd/">Install GridFtp XRootD</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/hadoop-overview/">Hadoop Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-hadoop-2-0-0/">Hadoop</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/xrootd-overview/">XRootD Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-xroot-client/">Install XRootD Client</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-xrootd/">Install XRootD</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Security</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../security/lcmaps-voms-authentication/">LCMAPS-VOMS authentication</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/host-certs/">Host Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/user-certs/">User Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/osg-ca-manage/">Managing CAs</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Common</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/install-best-practices/">Install Best Practices</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/ca/">CA Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/osg-ca-certs-updater/">OSG CA Certificates Updater</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/yum/">Yum Repos</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/openjdk7/">Java 7</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Usage Guides</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/pki-cli/">Certificate Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/configuration-with-osg-configure/">Configuration with OSG-Configure</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Other</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../other/gsissh/">GSI-enabled SSH</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-gwms-frontend/">GlideinWMS Frontend</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-cvmfs-stratum1/">Install a CVMFS Stratum 1</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/network-performance-toolkit/">Network Performance Toolkit</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/notes/">Release Notes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release_series/">OSG Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/supported_platforms/">Supported Platforms</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-osg-upcoming-software/">OSG upcoming software</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/yum-basics/">Yum Basics</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/signing/">RPM Signing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/contrib/">Contrib Software</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Monitoring</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv/">Install RSV</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/advanced-rsv-configuration/">Advanced RSV Configuration</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/rsv-control/">Manage RSV via rsv-control</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv-gwms-tester/">RSV GlideinWMS Tester</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Deprecated Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../data/bestman-install/">BeStMan Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../data/install-bestman-xrootd/">BeStMan Xrootd SE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/edg-mkgridmap/">EDG-Mkgridmap Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/install-gums/">GUMS</a>
+  
+        </li>
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Worker node glexec Install</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#glexec-installation-guide">Glexec Installation Guide</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#engineering-considerations">Engineering Considerations</a></li>
+        
+            <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l4" href="#install-instructions">Install Instructions</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-glexec">Configuring glexec</a></li>
+        
+            <li><a class="toctree-l4" href="#testing-the-installation-of-glexec">Testing the Installation of glexec</a></li>
+        
+            <li><a class="toctree-l4" href="#glexec-log-files">Glexec log files</a></li>
+        
+            <li><a class="toctree-l4" href="#how-to-get-help">How to get Help?</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-voms/">Install VOMS</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../common/help/">Get Help</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Deprecated Software &raquo;</li>
+        
+      
+    
+    <li>Worker node glexec Install</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/edit/master/docs/worker-node/install-glexec.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="glexec-installation-guide">Glexec Installation Guide<a class="headerlink" href="#glexec-installation-guide" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of the June 2017 release of OSG 3.4.0, this software is officially deprecated.  Support is scheduled to end as of May 2018.</p>
+</div>
+<p>This document is intended for System Administrators that are installing the OSG version of glexec.</p>
+<p>Glexec is commonly used for what are referred to as "pilot" or "glidein" jobs.</p>
+<p>Traditionally, users submitted their jobs directly to a remote site (or compute element gatekeeper). The user job was authenticated/authorized to run at that site based on the user’s proxy credentials and run under the local unix account assigned.</p>
+<p>In a pilot-based infrastructure, users submit their jobs to a centralized site (or queue). The pilot/glidein software at the centralized site then recognizes there is a demand for computing resources. It will then submit what is called a pilot/glidein job to a remote site. This pilot job gets authenticated/authorized to run on a worker node in that site’s cluster. It will then "pull" down user jobs from the centralized queue and execute them. Both the pilot and the user job are run under the pilot job’s proxy certificate credentials and local unix account. This represents a security problem in pilot-based systems as there is no authentication/authorization of the individual user’s proxy credentials and, thus, the user’s jobs do not run using it’s own local unix account.</p>
+<p>Glexec is a security tool that can be used to resolve this problem. It is meant to be used by VOs that run these pilot-based jobs. It has a number of authentication plugins and can be used both by European grid and by OSG.</p>
+<p>The pilot job will "pull" user jobs down from the central queue and invoke glexec which will then</p>
+<ol>
+<li>authenticate the user job’s proxy,</li>
+<li>perform an authorization callout (to GUMS in the case of OSG, or possibly a gridmapfile) similar to that done by the gatekeeper,</li>
+<li>and then run the user job under the local account assigned by the authorization service for that user.</li>
+</ol>
+<p>In effect, glexec functions much the same as a compute element gatekeeper, except these functions are now performed on the individual worker node. The pilot jobs authentication/authorization is done by the gatekeeper and the individual user jobs are now done by glexec on the individual worker node.</p>
+<p>Many worker node clusters use shared file systems like NFS for much of their software and user home accounts. Since glexec is an suid program, it must be installed on every single worker node individually. Most shared file systems do not handle this correctly so it cannot and must not be NFS-exported.</p>
+<p>For more information regarding pilot-based systems and glexec:</p>
+<ol>
+<li><a href="http://www.uscms.org/SoftwareComputing/Grid/WMS/glideinWMS/doc.html">glideinWMS - The glidein based WMS</a></li>
+<li><a href="http://iopscience.iop.org/1742-6596/119/5/052029/pdf/jpconf8_119_052029.pdf">Addressing the pilot security problem with gLExec (pdf)</a></li>
+</ol>
+<h2 id="engineering-considerations">Engineering Considerations<a class="headerlink" href="#engineering-considerations" title="Permanent link">&para;</a></h2>
+<p>If glexec is to be used at a site, it should be installed and configured on every worker node.</p>
+<p>A large number of batch slots using glexec can occasionally put an enormous strain on GUMS servers and cause overloading and client timeouts. In order to survive peak loads, the sysctl parameter <code>net.core.somaxconn</code> on a GUMS server machine should be set at least as high as the maximum number of job slots that might attempt to contact the server at about the same time.  For example, Fermilab set the value to 4096 on each of two servers and tested with a continuous load from 5000 job slots.</p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>These are the requirements that must be met to install glexec.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Normally you will install the <a href="../install-wn/">OSG worker node</a> first. Installing the <code>osg-wn-client-glexec</code> package will also install the worker node, but we do not duplicate instructions specific to the worker node here.</p>
+</div>
+<ul>
+<li>Verify you are using one of the <a href="../../release/supported_platforms/">supported platforms</a>.</li>
+<li>Prior to installing <code>glexec</code>, verify the <a href="../../common/yum/">yum repositories</a> are correctly configured.</li>
+<li><code>root</code> access to the host is required.</li>
+<li>The worker nodes will need the <a href="../../common/ca/">CA certificates</a> used to sign the proxies.</li>
+<li><code>fetch-crl</code> should be enabled and working.</li>
+</ul>
+<p>The glexec installation will create two users unless they are already created.</p>
+<table>
+<thead>
+<tr>
+<th align="left">User</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>glexec</code></td>
+<td align="left">Reduced privilege separate id used to improve security. If creating the account by hand, set the default gid of the <code>glexec</code> user to be a group that is also called <code>glexec</code>.</td>
+</tr>
+<tr>
+<td align="left"><code>gratia</code></td>
+<td align="left">Needed for the glexec gratia probe which is also automatically installed.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, OSG glexec requires a range of <strong>group ids</strong> for tracking purposes. You don‘t actually have to create the group entries but it is recommended to do so in order to reserve the gids and so they can be associated with names in the <code>/usr/bin/id</code> command. The recommended names are <code>glexecNN</code> where NN is a number starting from 00.</p>
+<ul>
+<li>Define at least 4 group ids per batch slot per worker node. A conservative way to handle this is to multiply the number of batch slots on the largest worker node by 6 and then share the group ids between all the worker nodes.</li>
+<li>They must be consecutive and in any range (default range is 65000-65049, configured in the <a href="#configuring-glexec">configuring glexec</a> section below).</li>
+<li>The same group IDs can be used on every worker node.</li>
+</ul>
+<h2 id="install-instructions">Install Instructions<a class="headerlink" href="#install-instructions" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The glexec tracking function requires a part of HTCondor. There are multiple ways to install HTCondor, for details see <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/CondorInformation">these instructions</a>. If you want a minimal install, you can run just this command to install the needed piece from the OSG distribution:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum install condor-procd
+</pre></div>
+
+
+</div>
+<p>After meeting all the requirements in the previous section, install glexec with this command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum install osg-wn-client-glexec
+</pre></div>
+
+
+<h2 id="configuring-glexec">Configuring glexec<a class="headerlink" href="#configuring-glexec" title="Permanent link">&para;</a></h2>
+<p>The following steps need to be done after the glexec installation is complete.</p>
+<ol>
+<li>First, review the contents of <code>/etc/glexec.conf</code>. All of the defaults should be fine, but if you want to change the behavior, the parameters are described in <code>man glexec.conf</code>.</li>
+<li>
+<p>Next, review all of the contents of <code>/etc/lcmaps.db</code> and in particular update the following pieces.</p>
+<ul>
+<li>
+<p>If you have GUMS, change <code>&lt;GUMS_HOST&gt;</code> in the following line to the fully qualified domain name of your GUMS server:</p>
+<div class="codehilite"><pre><span></span>&quot;–endpoint https://&lt;GUMS_HOST&gt;:8443/gums/services/GUMSXACMLAuthorizationServicePort&quot;
+</pre></div>
+
+
+</li>
+<li>
+<p>If you want to use a range of tracking group ids other than the default as described in the <a href="#6_Requirements">Requirements</a> section above, uncomment and change the <code>-min-gid</code> and <code>-max-gid</code> lines to your chosen values:</p>
+<div class="codehilite"><pre><span></span>&quot;-min-gid 65000&quot; &quot;-max-gid 65049&quot;
+</pre></div>
+
+
+</li>
+<li>
+<p>Uncomment the following two lines:</p>
+<div class="codehilite"><pre><span></span>glexectracking = &quot;lcmaps_glexec_tracking.mod&quot;
+                 &quot;-exec /usr/sbin/glexec_monitor&quot;
+</pre></div>
+
+
+</li>
+<li>
+<p>If you have GUMS, uncomment the following policy toward the end of the file:</p>
+<div class="codehilite"><pre><span></span>verifyproxy -&gt; gumsclient
+gumsclient -&gt; glexectracking
+</pre></div>
+
+
+<p>or if you have do not have GUMS and want to use a gridmapfile, uncomment the following policy:</p>
+<div class="codehilite"><pre><span></span>verifyproxy -&gt; gridmapfile
+gridmapfile -&gt; glexectracking
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="testing-the-installation-of-glexec">Testing the Installation of glexec<a class="headerlink" href="#testing-the-installation-of-glexec" title="Permanent link">&para;</a></h2>
+<p>Now, <em>as a non-privileged user (not root)</em>, do the following (where <YOURVO> is your VO, and <UID> is your uid as reported by <code>/usr/bin/id</code>):</p>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> voms-proxy-init -voms &lt;YOURVO&gt;:/&lt;YOURVO&gt;
+<span class="gp">user@host $</span> <span class="nb">export</span> <span class="nv">GLEXEC_CLIENT_CERT</span><span class="o">=</span>/tmp/x509up_u&lt;UID&gt;
+<span class="gp">user@host $</span> <span class="nb">export</span> <span class="nv">X509_USER_PROXY</span><span class="o">=</span>/tmp/x509up_u&lt;UID&gt;
+<span class="gp">user@host $</span> /usr/sbin/glexec /usr/bin/id
+<span class="gp">user@host $</span> <span class="nv">uid</span><span class="o">=</span><span class="m">13160</span><span class="o">(</span>fnalgrid<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">9767</span><span class="o">(</span>fnalgrid<span class="o">)</span> <span class="nv">groups</span><span class="o">=</span><span class="m">65000</span><span class="o">(</span>glexec00<span class="o">)</span>
+</pre></div>
+
+
+<p>If <code>glexec</code> is successful, it will print out the uid and gid that your proxy would normally be mapped to by your GUMS server, plus a supplementary tracking group. (The actual names and numbers will be different from what you see above.)</p>
+<p>If you have problems, please read about <a href="https://twiki.opensciencegrid.org/bin/view/Documentation/Release3/TroubleshootingGlexecLcmaps">troubleshooting glexec</a>.</p>
+<h2 id="glexec-log-files">Glexec log files<a class="headerlink" href="#glexec-log-files" title="Permanent link">&para;</a></h2>
+<p>Glexec sends all its log information by default to syslog. By default they go to <code>/var/log/messages</code>, but this may differ if you have customized your syslog setup. Here are some sample messages:</p>
+<div class="codehilite"><pre><span></span>Apr 25 16:36:16 fermicloud053 glexec[2867]: lcmaps: lcmaps.mod-PluginInit(): plugin glexectracking not found (arguments: )
+Apr 25 16:36:16 fermicloud053 glexec[2867]: lcmaps: lcmaps.mod-lcmaps_startPluginManager(): error initializing plugin: glexectracking
+Apr 25 16:36:16 fermicloud053 glexec[2867]: lcmaps: lcmaps_init() error: could not start plugin manager
+Apr 25 16:36:16 fermicloud053 glexec[2867]: Initialisation of LCMAPS failed.
+</pre></div>
+
+
+<p>These particular messages are pretty common, caused by forgetting to uncomment the beginning of the <code>glexectracking</code> rule in <code>/etc/lcmaps.db</code>.</p>
+<p>It is possible to redirect glexec log messages to a different file with standard syslog. To do that, choose one of the <code>LOG_LOCAL[0-7]</code> log facilities that are unused, for example <code>LOG_LOCAL1</code>. Then set the following in <code>/etc/glexec.conf</code>:</p>
+<div class="codehilite"><pre><span></span>syslog_facility = LOG_LOCAL1
+</pre></div>
+
+
+<p>and add a corresponding parameter to the <code>lcmaps_glexec_tracking.mod</code> entry in <code>/etc/lcmaps.db</code>:</p>
+<div class="codehilite"><pre><span></span>  &quot;-log-facility LOG_LOCAL1&quot;
+</pre></div>
+
+
+<p>Then in <code>/etc/rsyslog.conf</code>, add a line like this:</p>
+<div class="codehilite"><pre><span></span>local1.* /var/log/glexec.log
+</pre></div>
+
+
+<p>and also exclude those messages from <code>/var/log/messages</code> by adding <code>local1.none</code> after other wildcards on the existing <code>/var/log/messages</code> line, for example:</p>
+<div class="codehilite"><pre><span></span>*.info;local1.none;mail.none;authpriv.none;cron.none /var/log/messages
+</pre></div>
+
+
+<p>Be sure to notify the system logger to re-read the configuration file with <code>service rsyslog restart</code>.</p>
+<p><code>rsyslog</code>, by default, limits the rate at which messages may be logged, and if maximum debugging is enabled in glexec this limit is reached. To avoid that, you can add the following to <code>/etc/rsyslog.conf</code> after the line "$ModLoad imuxsock.so":</p>
+<div class="codehilite"><pre><span></span>$SystemLogRateLimitInterval 0
+$SystemLogRateLimitBurst 0
+</pre></div>
+
+
+<p>and do <code>service rsyslog restart</code>.</p>
+<p>Alternatively, <code>syslog-ng</code> (available in the EPEL repository) can do the same job by matching all the messages that have the string "glexec" in the name.
+These rules in <code>/etc/syslog-ng/syslog-ng.conf</code> will separate the glexec messages into <code>/var/log/glexec.log</code>:</p>
+<div class="codehilite"><pre><span></span>destination d_glexec { file(&quot;/var/log/glexec.log&quot;); };
+filter f_glexec { program(&quot;^glexec&quot;); };
+filter f_notglexec { not program(&quot;^glexec&quot;); };
+log { source(s_sys); filter(f_glexec); destination(d_glexec); };
+</pre></div>
+
+
+<p>Then later, in the log rule writing sending to <code>d_mesg</code>, add a <code>filter(f_notglexec);</code> before the destination rule to keep glexec messages out of <code>/var/log/messages</code>:</p>
+<div class="codehilite"><pre><span></span>log { source(s_sys); filter(f_filter1); filter(f_notglexec); destination(d_mesg); };
+</pre></div>
+
+
+<h2 id="how-to-get-help">How to get Help?<a class="headerlink" href="#how-to-get-help" title="Permanent link">&para;</a></h2>
+<p>To get assistance please use the <a href="../../common/help">Help Procedure</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../other/install-voms/" class="btn btn-neutral float-right" title="Install VOMS">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../security/install-gums/" class="btn btn-neutral" title="GUMS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../security/install-gums/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../other/install-voms/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

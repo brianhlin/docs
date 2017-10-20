@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Install HTTP Cache - OSG Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Install HTTP Cache";
+    var mkdocs_page_input_path = "data/frontier-squid.md";
+    var mkdocs_page_url = "/data/frontier-squid/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> OSG Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../..">Home</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../site-planning/">Site Planning</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Compute Element</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/htcondor-ce-overview/">HTCondor-CE Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/install-htcondor-ce/">Install HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/job-router-recipes/">Job Router Recipes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/troubleshoot-htcondor-ce/">Troubleshooting HTCondor-CE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../compute-element/submit-htcondor-ce/">Submitting to HTCondor-CE</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Worker Node</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/using-wn/">Worker Node Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn/">Worker Node (RPM install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-tarball/">Worker Node (tarball install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-wn-oasis/">Worker Node (OASIS install)</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-cvmfs/">CVMFS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-singularity/">Singularity</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Data</span>
+  <ul class="subnav">
+        <li class=" current">
+          
+  
+    <a class="current" href="./">Install HTTP Cache</a>
+  
+  <ul class="subnav">
+      
+    <li class="toctree-l3"><a href="#install-the-frontier-squid-http-caching-proxy">Install the Frontier Squid HTTP Caching Proxy</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#frontier-squid-is-recommended">Frontier Squid is Recommended</a></li>
+        
+            <li><a class="toctree-l4" href="#before-starting">Before Starting</a></li>
+        
+            <li><a class="toctree-l4" href="#configuring-frontier-squid">Configuring Frontier Squid</a></li>
+        
+            <li><a class="toctree-l4" href="#using-frontier-squid">Using Frontier-Squid</a></li>
+        
+            <li><a class="toctree-l4" href="#validating-frontier-squid">Validating Frontier Squid</a></li>
+        
+            <li><a class="toctree-l4" href="#reference">Reference</a></li>
+        
+        </ul>
+    
+
+  </ul>
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../update-oasis/">Update OASIS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../external-oasis-repos/">External OASIS repositories</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../gridftp/">Install GridFTP Server</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../load-balanced-gridftp/">Install Load Balanced GridFTP</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-gridftp-xrootd/">Install GridFtp XRootD</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../hadoop-overview/">Hadoop Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-hadoop-2-0-0/">Hadoop</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../xrootd-overview/">XRootD Overview</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xroot-client/">Install XRootD Client</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-xrootd/">Install XRootD</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Security</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../security/lcmaps-voms-authentication/">LCMAPS-VOMS authentication</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/host-certs/">Host Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/user-certs/">User Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/osg-ca-manage/">Managing CAs</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Common</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/install-best-practices/">Install Best Practices</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/ca/">CA Certificates</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/osg-ca-certs-updater/">OSG CA Certificates Updater</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/yum/">Yum Repos</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../common/openjdk7/">Java 7</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Usage Guides</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../common/pki-cli/">Certificate Tools</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/configuration-with-osg-configure/">Configuration with OSG-Configure</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Other</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../other/gsissh/">GSI-enabled SSH</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-gwms-frontend/">GlideinWMS Frontend</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-cvmfs-stratum1/">Install a CVMFS Stratum 1</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/network-performance-toolkit/">Network Performance Toolkit</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Release Information</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../release/notes/">Release Notes</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/release_series/">OSG Release Series</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/supported_platforms/">Supported Platforms</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-osg-upcoming-software/">OSG upcoming software</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/yum-basics/">Yum Basics</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/signing/">RPM Signing</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../release/contrib/">Contrib Software</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Monitoring</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv/">Install RSV</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/advanced-rsv-configuration/">Advanced RSV Configuration</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/rsv-control/">Manage RSV via rsv-control</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../monitoring/install-rsv-gwms-tester/">RSV GlideinWMS Tester</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  <span class="caption-text">Deprecated Software</span>
+  <ul class="subnav">
+        <li class="">
+          
+  
+    <a class="" href="../bestman-install/">BeStMan Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../install-bestman-xrootd/">BeStMan Xrootd SE</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/edg-mkgridmap/">EDG-Mkgridmap Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../security/install-gums/">GUMS</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../worker-node/install-glexec/">Worker node glexec Install</a>
+  
+        </li>
+        <li class="">
+          
+  
+    <a class="" href="../../other/install-voms/">Install VOMS</a>
+  
+        </li>
+  </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+    <a class="" href="../../common/help/">Get Help</a>
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+            <li class="toctree-l1">
+		
+  
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">OSG Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Data &raquo;</li>
+        
+      
+    
+    <li>Install HTTP Cache</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/edit/master/docs/data/frontier-squid.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="install-the-frontier-squid-http-caching-proxy">Install the Frontier Squid HTTP Caching Proxy<a class="headerlink" href="#install-the-frontier-squid-http-caching-proxy" title="Permanent link">&para;</a></h1>
+<p>Frontier Squid is a distribution of the well-known <a href="http://squid-cache.org">squid HTTP caching
+proxy software</a> that is optimized for use with
+applications on the Worldwide LHC Computing Grid (WLCG). It has
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Why_use_frontier_squid_instead_o">many advantages</a>
+over regular squid for common grid applications, especially Frontier
+and CVMFS. The OSG distribution of frontier-squid is a straight rebuild of the
+upstream frontier-squid package for the convenience of OSG users.</p>
+<p>This document is intended for System Administrators who are installing
+<code>frontier-squid</code>, the OSG distribution of the Frontier Squid software.</p>
+<div class="admonition note">
+<p class="admonition-title">Applicable versions</p>
+<p>The applicable software versions for this document are OSG Version &gt;= 3.4.0.
+The version of frontier-squid installed should be &gt;= 3.5.24-3.1.
+When using an OSG Version &lt; 3.4.0 and a frontier-squid version in the
+2.7STABLE9 series, refer to the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/OldInstallSquid">old upstream install documentation</a>
+instead of the current links included below. There are some
+incompatibilities between the two versions, so if you are upgrading
+from a 2.7STABLE9 version to a 3.5 version, see the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Upgrading">upstream documentation on upgrading</a>.</p>
+</div>
+<h2 id="frontier-squid-is-recommended">Frontier Squid is Recommended<a class="headerlink" href="#frontier-squid-is-recommended" title="Permanent link">&para;</a></h2>
+<p>OSG recommends that all sites run a caching proxy for HTTP and HTTPS
+to help reduce bandwidth and improve throughput. To that end, Compute
+Element (CE) installations include Frontier Squid automatically. We
+encourage all sites to configure and use this service, as described
+below.</p>
+<p>For large sites that expect heavy load on the proxy, it may be best to
+run the proxy on its own host. In that case, the Frontier Squid
+software still will be installed on the CE, but it need not be
+enabled. Instead, install your proxy service on the separate host and
+then configure the CE host to refer to the proxy on that host.</p>
+<p>The <code>osg-configure</code> configuration tool (version 1.0.45 and later)
+warns users who have not added the proxy location to their CE
+configuration. In the future, a proxy will be required and
+osg-configure will fail if the proxy location is not set.</p>
+<h2 id="before-starting">Before Starting<a class="headerlink" href="#before-starting" title="Permanent link">&para;</a></h2>
+<p>Before starting the installation process, consider the following points (consulting <a href="#reference">the Reference section below</a> as needed):</p>
+<ul>
+<li><strong>User IDs:</strong> If it does not exist already, the installation will create the <code>squid</code> Linux user</li>
+<li><strong>Network ports:</strong> Frontier squid communicates on ports 3128 (TCP) and 3401 (UDP)</li>
+<li><strong>Host choice:</strong> If you will be supporting the Frontier application at your site, review the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Hardware">upstream documentation Hardware considerations section</a> to determine how to size your equipment.</li>
+</ul>
+<p>As with all OSG software installations, there are some one-time (per host) steps to prepare in advance:</p>
+<ul>
+<li>Ensure the host has <a href="../../release/supported_platforms">a supported operating system</a></li>
+<li>Obtain root access to the host</li>
+<li>Prepare the <a href="../../common/yum">required Yum repositories</a></li>
+</ul>
+<h3 id="installing-frontier-squid">Installing Frontier Squid<a class="headerlink" href="#installing-frontier-squid" title="Permanent link">&para;</a></h3>
+<p>To install Frontier Squid, make sure that your host is up to date before installing the required packages:</p>
+<ol>
+<li>
+<p>Clean yum cache:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum clean all --enablerepo<span class="o">=</span>*
+</pre></div>
+
+
+</li>
+<li>
+<p>Update software:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum update
+</pre></div>
+
+
+<p>This command will update <strong>all</strong> packages</p>
+</li>
+<li>
+<p>Install Frontier Squid:</p>
+<div class="codehilite"><pre><span></span><span class="gp">root@host #</span> yum install frontier-squid
+</pre></div>
+
+
+</li>
+</ol>
+<h2 id="configuring-frontier-squid">Configuring Frontier Squid<a class="headerlink" href="#configuring-frontier-squid" title="Permanent link">&para;</a></h2>
+<h3 id="configuring-the-frontier-squid-service">Configuring the Frontier Squid Service<a class="headerlink" href="#configuring-the-frontier-squid-service" title="Permanent link">&para;</a></h3>
+<p>To configure the Frontier Squid service itself:</p>
+<ol>
+<li>Follow the
+    <a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Configuration">Configuration section of the upstream Frontier Squid documentation</a>.</li>
+<li>Enable, start, and test the service (as described below).</li>
+<li>Enable WLCG monitoring as described in the
+    <a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Enabling_monitoring">upstream documentation on enabling monitoring</a>
+    and
+    <a href="https://twiki.cern.ch/twiki/bin/view/LCG/WLCGSquidRegistration#OIM">register the squid in OIM</a>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An important difference between the standard Squid software and
+the Frontier Squid variant is that Frontier Squid changes are in
+<code>/etc/squid/customize.sh</code> instead of <code>/etc/squid/squid.conf</code>.</p>
+</div>
+<h3 id="configuring-the-osg-ce">Configuring the OSG CE<a class="headerlink" href="#configuring-the-osg-ce" title="Permanent link">&para;</a></h3>
+<p>To configure the OSG Compute Element (CE) to know about your Frontier Squid service:</p>
+<ol>
+<li>
+<p>On your CE host, edit <code>/etc/osg/config.d/01-squid.ini</code></p>
+<ul>
+<li>Make sure that <code>enabled</code> is set to <code>True</code></li>
+<li>Set <code>location</code> to the hostname and port of your Frontier Squid
+    service (e.g., <code>my.squid.host.edu:3128</code>)</li>
+<li>Leave the other settings at <code>DEFAULT</code> unless you have specific
+    reasons to change them</li>
+</ul>
+</li>
+<li>
+<p>Run <code>osg-configure</code> to propagate the changes on your CE.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may want to finish other CE configuration tasks before running
+<code>osg-configure</code>. Just be sure to run it once before starting CE
+services.</p>
+</div>
+<h2 id="using-frontier-squid">Using Frontier-Squid<a class="headerlink" href="#using-frontier-squid" title="Permanent link">&para;</a></h2>
+<p>Start the frontier-squid service and enable it to start at boot time. As a reminder, here are common service commands (all run as <code>root</code>):</p>
+<table>
+<thead>
+<tr>
+<th align="left">To...</th>
+<th align="left">On EL6, run the command...</th>
+<th align="left">On EL7, run the command...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Start a service</td>
+<td align="left"><code>service frontier-squid start</code></td>
+<td align="left"><code>systemctl start frontier-squid</code></td>
+</tr>
+<tr>
+<td align="left">Stop a  service</td>
+<td align="left"><code>service frontier-squid stop</code></td>
+<td align="left"><code>systemctl stop frontier-squid</code></td>
+</tr>
+<tr>
+<td align="left">Enable a service to start on boot</td>
+<td align="left"><code>chkconfig frontier-squid on</code></td>
+<td align="left"><code>systemctl enable frontier-squid</code></td>
+</tr>
+<tr>
+<td align="left">Disable a service from starting on boot</td>
+<td align="left"><code>chkconfig frontier-squid off</code></td>
+<td align="left"><code>systemctl disable frontier-squid</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="validating-frontier-squid">Validating Frontier Squid<a class="headerlink" href="#validating-frontier-squid" title="Permanent link">&para;</a></h2>
+<p>As any user on another computer, do the following (where
+<code>yoursquid.your.domain</code> is the fully qualified domain name of your
+squid server):</p>
+<div class="codehilite"><pre><span></span><span class="gp">user@host $</span> <span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://<span style="color:red">yoursquid.your.domain</span>:3128
+<span class="gp">user@host $</span> wget -qdO/dev/null http://frontier.cern.ch <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">|</span>grep X-Cache
+<span class="go">X-Cache: MISS from <span style="color:red">yoursquid.your.domain</span></span>
+<span class="gp">user@host $</span> wget -qdO/dev/null http://frontier.cern.ch <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">|</span>grep X-Cache
+<span class="go">X-Cache: HIT from <span style="color:red">yoursquid.your.domain</span></span>
+</pre></div>
+
+
+<p>If the grep doesn't print anything, try removing it from the pipeline
+to see if errors are obvious. If the second try says MISS again,
+something is probably wrong with the squid cache writes. Look at the squid
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Log_file_contents">access.log file</a>
+to try to see what's wrong.</p>
+<p>If your squid will be supporting the Frontier application, it is also
+good to do the test in the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Testing_the_installation">upstream documentation Testing the installation section</a>.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<p>The frontier-squid installation will create one user account unless it
+already exists.</p>
+<table>
+<thead>
+<tr>
+<th align="left">User</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>squid</code></td>
+<td align="left">Reduced privilege user that the squid process runs under. Set the default gid of the "squid" user to be a group that is also called "squid".</td>
+</tr>
+</tbody>
+</table>
+<p>The package can instead use another user name of your choice if you
+create a configuration file before installation. Details are in the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Preparation">upstream documentation Preparation section</a>.</p>
+<h3 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Service Name</th>
+<th>Protocol</th>
+<th>Port Number</th>
+<th>Inbound</th>
+<th>Outbound</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Squid</td>
+<td>tcp</td>
+<td>3128</td>
+<td>✓</td>
+<td>✓</td>
+<td>Also limited in squid ACLs. Both in and outbound must not be wide open to internet simultaneously</td>
+</tr>
+<tr>
+<td>Squid monitor</td>
+<td>udp</td>
+<td>3401</td>
+<td>✓</td>
+<td></td>
+<td>Also limited in squid ACLs. Should be limited to monitoring server addresses</td>
+</tr>
+</tbody>
+</table>
+<p>The addresses of the WLCG monitoring servers for use in firewalls are
+listed in the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Enabling_monitoring">upstream documentation Enabling monitoring section</a>.</p>
+<h3 id="frontier-squid-log-files">Frontier Squid Log Files<a class="headerlink" href="#frontier-squid-log-files" title="Permanent link">&para;</a></h3>
+<p>Log file contents are explained in the
+<a href="https://twiki.cern.ch/twiki/bin/view/Frontier/InstallSquid#Log_file_contents">upstream documentation Log file contents section</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../update-oasis/" class="btn btn-neutral float-right" title="Update OASIS">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../worker-node/install-singularity/" class="btn btn-neutral" title="Singularity"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/opensciencegrid/docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../worker-node/install-singularity/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../update-oasis/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
