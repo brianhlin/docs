@@ -9,6 +9,12 @@ to accept pilots that _exclusively_ run OSG VO jobs relating to COVID-19 researc
 (among other pilots you support), allowing you to prioritize these pilots and account
 for this usage separately from other OSG activity.
 
+!!!tip "Already support the OSG VO?"
+    Then you're already supporting COVID-19 research!
+    COVID-19 user jobs may run inside regular OSG pilots and have a higher priority than other OSG work.
+    Follow the rest of this document if you would like to prioritize COVID-19 research through your batch system
+    without prioritizing all other OSG jobs.
+
 To support COVID-19 work, the overall process includes the following:
 
 1. Make the site computing resources available through a HTCondor-CE if you have not already done so.
