@@ -35,10 +35,10 @@ the information noted below:
 
 1. Submit a support inquiry to the system based on the VOs that you are associated with:
 
-    | If you are primarily associated with... | Submit new tickets to...                                                                                        |
-    |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-    | LHC VOs                                 | [GGUS](https://ggus.eu)                                                                                         |
-    | Anyone else                             | [help@opensciencegrid.org](mailto:help@opensciencegrid.org) |
+    | If you are primarily associated with... | Submit new tickets to...                                          |
+    |-----------------------------------------|-------------------------------------------------------------------|
+    | LHC VOs                                 | [GGUS](https://ggus.eu)                                           |
+    | Anyone else                             | [support@opensciencegrid.org](mailto:support@opensciencegrid.org) |
 
 ### Community-specific support ###
 

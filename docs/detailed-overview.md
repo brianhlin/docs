@@ -4,7 +4,7 @@ Detailed Overview
 This document outlines the overall installation process for an OSG site and provides many links into detailed
 installation, configuration, troubleshooting, and similar pages. If you do not see software-related technical
 documentation listed here, try the search bar at the top or contacting us at
-[help@opensciencegrid.org](mailto:help@opensciencegrid.org).
+[support@opensciencegrid.org](mailto:support@opensciencegrid.org).
 
 Plan the Site
 -------------
@@ -31,7 +31,7 @@ Currently, we support [HTCondor](http://research.cs.wisc.edu/htcondor/),
 For smaller sites (less than 50 worker nodes), the most common way to add a site to OSG is to install the OSG Compute
 Element (CE) on the central host of your batch system.
 At such a site - especially if you have minimal time to maintain a CE - you may want to contact
-<mailto:help@opensciencegrid.org> to ask about using an OSG-hosted CE instead of running your own.
+<mailto:support@opensciencegrid.org> to ask about using an OSG-hosted CE instead of running your own.
 Before proceeding with an install, be sure that you can submit and successfully run a job from your OSG CE host into
 your batch system.
 
@@ -166,7 +166,7 @@ No action is required on your end, factory operations will start submitting pilo
 Maintain the Site
 -----------------
 
-To avoid potential issues with OSG job submissions, please [notify us](mailto:help@opensciencegrid.org) of major changes
+To avoid potential issues with OSG job submissions, please [notify us](mailto:support@opensciencegrid.org) of major changes
 to your site, including:
 
 - Major OS version changes on the worker nodes (e.g., upgraded from EL 6 to EL 7)

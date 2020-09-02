@@ -42,7 +42,7 @@ Because jobs running in OSG run in a completely different environment than your 
 and require additional considerations for data movement,
 you or your campus will need to provide additional support for your users to enable them to
 properly use OSG.
-Send email to <help@opensciencegrid.org> saying that you would like to flock jobs to OSG,
+Send email to <support@opensciencegrid.org> saying that you would like to flock jobs to OSG,
 and we will consult with you about the proper solution for your site and what needs to be set up
 at both the OSG and at your site.
 
@@ -84,7 +84,7 @@ If you are unable to obtain a host certificate, use the "pool password" authenti
 
 ### Request to be allowed to flock to OSG
 OSG staff will need to add your submit host to the list of hosts that flocked jobs are accepted from.
-Send email to <help@opensciencegrid.org> with the hostname of your submit host and request to be added to the list.
+Send email to <support@opensciencegrid.org> with the hostname of your submit host and request to be added to the list.
 
 
 Installing Required Software
@@ -140,7 +140,7 @@ you do not need to do any additional configuration and may [continue to the next
 
 If you cannot obtain a host certificate, then configure pool password authentication via the following instructions:
 
-1. Send email to <help@opensciencegrid.org> requesting the pool password file for flocking.
+1. Send email to <support@opensciencegrid.org> requesting the pool password file for flocking.
 
 1. Move the pool password file you have received to `/etc/condor/pool_password`;
    set the ownership of that file to `condor:condor` and the permissions to `0600`.

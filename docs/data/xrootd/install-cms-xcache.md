@@ -243,4 +243,4 @@ user@host $ xrdcp -vf -d 1 root://cache_host:1094//store/data/Run2017B/SingleEle
 Getting Help
 ------------
 
-To get assistance, please use the [this page](/common/help) or contact <help@opensciencegrid.org> directly.
+To get assistance, please use the [this page](/common/help) or contact <support@opensciencegrid.org> directly.

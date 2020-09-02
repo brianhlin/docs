@@ -71,7 +71,7 @@ usage of resources:
 -   Jobs running through OSG can be traced back to the user that submitted them
 -   Job submission can quickly be disabled if needed
 -   OSG staff are readily contactable in case of an emergency,
-    through email at <mailto:help@opensciencegrid.org>
+    through email at <mailto:support@opensciencegrid.org>
 
 
 Applying for an OSG Hosted CE
@@ -82,7 +82,7 @@ Before making any system changes, you should do the following steps:
 -   Fill out the [cluster integration questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSexKMFho_TGJ8nOY-qLXJf_8neAnjDSJqrNbYIUvMcOfoZ6Uw/viewform?usp=sf_link)
     so that the OSG team has basic information about your cluster
 
--   Email [help@opensciencegrid.org](mailto:help@opensciencegrid.org)
+-   Email [support@opensciencegrid.org](mailto:support@opensciencegrid.org)
     to set up a consultation call with the OSG team,
     in order to discuss how you would like to contribute to the OSG;
     for example, the number of OSG jobs that should run, what resource limits you have,

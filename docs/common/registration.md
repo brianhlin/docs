@@ -28,9 +28,9 @@ To register as an OSG contact or add your GitHub ID to your pre-existing contact
 [contact database](https://topology.opensciencegrid.org/contacts) and choose one of the following:
 
 - **If you find your name and see an associated `GitHub` account**, you can start submitting registrations!
-- **If you find your name but do not see an associated `GitHub` account**, send an email to <mailto:help@opensciencegrid.org>
+- **If you find your name but do not see an associated `GitHub` account**, send an email to <mailto:support@opensciencegrid.org>
   with your GitHub ID.
-- **If you cannot find your name**, send an email to <mailto:help@opensciencegrid.org> with the following information:
+- **If you cannot find your name**, send an email to <mailto:support@opensciencegrid.org> with the following information:
     - Full name
     - Primary email address
     - GitHub user name
@@ -133,7 +133,7 @@ To register a new resource, follow the instructions below:
    `topology/<FACILITY>/<SITE>/<RESOURCE GROUP>.yaml`.
    When searching for these, keep in mind that case and spaces matter.
 
-    - If you do not have a facility, contact <mailto:help@opensciencegrid.org> for help.
+    - If you do not have a facility, contact <mailto:support@opensciencegrid.org> for help.
     - If you have a facility but not a site, first follow the instructions
       for [registering a site](#new-site) above.
     - If you have a facility and a site but not a resource group, pick a [resource group name](#registering-resources).
