@@ -20,6 +20,13 @@ Updates to critical packages are also announced by email and are sent to the fol
 -   [site-announce@osg-htc.org](https://groups.google.com/u/1/a/osg-htc.org/g/site-announce)
 -   [software-discuss@osg-htc.org](https://groups.google.com/a/osg-htc.org/g/software-discuss)
 
+**May 7, 2026:** OpenBao 2.5.3
+----------------------------------------------------------------------------------------------------------------------
+-   [OpenBao 2.5.3](https://github.com/openbao/openbao/releases/tag/v2.5.3)
+    -   Update to match the version in EPEL
+    -   Security fixes to features probably not enabled by OSG users
+
+
 **April 23, 2026:** Pelican 7.24.2, gratia-probe 2.9.1, ospool-ap 1.10-3
 ----------------------------------------------------------------------------------------------------------------------
 -   [Pelican 7.24.2](https://github.com/PelicanPlatform/pelican/releases/tag/v7.24.2)
