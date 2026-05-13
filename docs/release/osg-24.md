@@ -20,6 +20,28 @@ Updates to critical packages are also announced by email and are sent to the fol
 -   [site-announce@osg-htc.org](https://groups.google.com/u/1/a/osg-htc.org/g/site-announce)
 -   [software-discuss@osg-htc.org](https://groups.google.com/a/osg-htc.org/g/software-discuss)
 
+**May 14, 2026:** gratia-probe 2.9.2, vo-client 142 
+----------------------------------------------------------------------------------------------------------------------
+-   gratia-probe 2.9.2
+    -   Fixes bug in 2.9.1 that prevented record delivery
+    
+    !!! warning "Issue in previous gratia-probe release"
+        gratia-probe 2.9.2 fixes a bug in the previous gratia-probe release that prevented record delivery. If you
+        installed gratia-probe 2.9.1, please move any held records back into the processing directory for reprocessing:
+
+        -   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
+            ```
+            $ condor_ce_config_val PER_JOB_HISTORY_DIR
+            ```
+        -   Move quarantined gratia records back into the per job history dir:  
+            ```
+            mv $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history* \
+               $(condor_ce_config_val PER_JOB_HISTORY_DIR)
+            ```
+
+-   vo-client 142
+    -   Add voms2-*-.cern.ch VOMS servers
+
 **May 7, 2026:** OpenBao 2.5.3
 ----------------------------------------------------------------------------------------------------------------------
 -   [OpenBao 2.5.3](https://github.com/openbao/openbao/releases/tag/v2.5.3)
@@ -917,4 +939,3 @@ The following container images have new tags for OSG 24:
 | Image name                                               | Tags         |
 |:---------------------------------------------------------|:-------------|
 | `hub.osg-htc.org/osg-htc/ospool-ep`              | `24-release` |
-
