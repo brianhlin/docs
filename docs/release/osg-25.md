@@ -61,15 +61,15 @@ Updates to critical packages are also announced by email and are sent to the fol
 -   gratia-probe 2.9.2
     -   Fixes bug in 2.9.1 that prevented record delivery
     
-    !!! warning "Issue in previous gratia-probe release"
-        gratia-probe 2.9.2 fixes a bug in the previous gratia-probe release that prevented record delivery. If you
-        installed gratia-probe 2.9.1, please move any held records back into the processing directory for reprocessing:
+    !!! bug "Issue in previous gratia-probe release"
+        If you previously installed gratia-probe 2.9.1, please move any held records back into the 
+        processing directory for reprocessing:
 
-        -   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
+        1.   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
             ```
             $ condor_ce_config_val PER_JOB_HISTORY_DIR
             ```
-        -   Move quarantined gratia records back into the per job history dir:  
+        1.   Move quarantined gratia records back into the per job history dir:  
             ```
             mv $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history* \
                $(condor_ce_config_val PER_JOB_HISTORY_DIR)
@@ -77,7 +77,7 @@ Updates to critical packages are also announced by email and are sent to the fol
 
 -   vo-client 142
     -   Add voms2-*-.cern.ch VOMS servers
-    
+
 **April 23, 2026:** Pelican 7.24.2, gratia-probe 2.9.1, ospool-ap 25-2
 ----------------------------------------------------------------------------------------------------------------------
 -   [Pelican 7.24.2](https://github.com/PelicanPlatform/pelican/releases/tag/v7.24.2)
