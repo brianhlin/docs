@@ -43,16 +43,16 @@ Updates to critical packages are also announced by email and are sent to the fol
     -   Add voms2-*-.cern.ch VOMS servers
 
 -   [HTCondor 24.0.20](https://htcondor.readthedocs.io/en/24.0/version-history/lts-versions-24-0.html#version-24-0-20)
-    -   Fix reporting of RemoteUserCPU in parallel universe
-    -   condor_ssh_to_job can now execute one-shot commands when using containers
-    -   condor_ssh_to_job now enters the proper cgroup when using containers
+    -   Fix reporting of `RemoteUserCPU` in parallel universe
+    -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+    -   `condor_ssh_to_job` now enters the proper cgroup when using containers
     -   HTCondor tarballs now contain Pelican 7.24.2
 -   Upcoming:
     -   [HTCondor 24.12.20](https://htcondor.readthedocs.io/en/24.x/version-history/feature-versions-24-x.html#version-24-12-20)
         -   Fixed Access Point spooled X.509 job proxy refresh
-        -   Fix reporting of RemoteUserCPU in parallel universe
-        -   condor_ssh_to_job can now execute one-shot commands when using containers
-        -   condor_ssh_to_job now enters the proper cgroup when using containers
+        -   Fix reporting of `RemoteUserCPU` in parallel universe
+        -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+        -   `condor_ssh_to_job` now enters the proper cgroup when using containers
         -   HTCondor tarballs now contain Pelican 7.24.2
 
 **May 7, 2026:** OpenBao 2.5.3
