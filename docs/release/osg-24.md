@@ -20,6 +20,41 @@ Updates to critical packages are also announced by email and are sent to the fol
 -   [site-announce@osg-htc.org](https://groups.google.com/u/1/a/osg-htc.org/g/site-announce)
 -   [software-discuss@osg-htc.org](https://groups.google.com/a/osg-htc.org/g/software-discuss)
 
+**May 14, 2026:** gratia-probe 2.9.2, vo-client 142, HTCondor 24.0.20; Upcoming: HTCondor 24.12.20 
+----------------------------------------------------------------------------------------------------------------------
+-   gratia-probe 2.9.2
+    -   Fixes bug in 2.9.1 that prevented record delivery
+    
+    !!! bug "Issue in previous gratia-probe release"
+        If you previously installed gratia-probe 2.9.1, please move any held records back into the 
+        processing directory for reprocessing:
+
+        1.   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
+            ```
+            $ condor_ce_config_val PER_JOB_HISTORY_DIR
+            ```
+        1.   Move quarantined gratia records back into the per job history dir:  
+            ```
+            mv $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history* \
+               $(condor_ce_config_val PER_JOB_HISTORY_DIR)
+            ```
+
+-   vo-client 142
+    -   Add voms2-*-.cern.ch VOMS servers
+
+-   [HTCondor 24.0.20](https://htcondor.readthedocs.io/en/24.0/version-history/lts-versions-24-0.html#version-24-0-20)
+    -   Fix reporting of `RemoteUserCPU` in parallel universe
+    -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+    -   `condor_ssh_to_job` now enters the proper cgroup when using containers
+    -   HTCondor tarballs now contain Pelican 7.24.2
+-   Upcoming:
+    -   [HTCondor 24.12.20](https://htcondor.readthedocs.io/en/24.x/version-history/feature-versions-24-x.html#version-24-12-20)
+        -   Fixed Access Point spooled X.509 job proxy refresh
+        -   Fix reporting of `RemoteUserCPU` in parallel universe
+        -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+        -   `condor_ssh_to_job` now enters the proper cgroup when using containers
+        -   HTCondor tarballs now contain Pelican 7.24.2
+
 **May 7, 2026:** OpenBao 2.5.3
 ----------------------------------------------------------------------------------------------------------------------
 -   [OpenBao 2.5.3](https://github.com/openbao/openbao/releases/tag/v2.5.3)
@@ -917,4 +952,3 @@ The following container images have new tags for OSG 24:
 | Image name                                               | Tags         |
 |:---------------------------------------------------------|:-------------|
 | `hub.osg-htc.org/osg-htc/ospool-ep`              | `24-release` |
-

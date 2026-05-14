@@ -56,6 +56,50 @@ Updates to critical packages are also announced by email and are sent to the fol
 -   [site-announce@osg-htc.org](https://groups.google.com/u/1/a/osg-htc.org/g/site-announce)
 -   [software-discuss@osg-htc.org](https://groups.google.com/a/osg-htc.org/g/software-discuss)
 
+**May 14, 2026:** gratia-probe 2.9.2, vo-client 142, HTCondor 25.0.10; Upcoming: HTCondor 25.10.1
+----------------------------------------------------------------------------------------------------------------------
+-   gratia-probe 2.9.2
+    -   Fixes bug in 2.9.1 that prevented record delivery
+    
+    !!! bug "Issue in previous gratia-probe release"
+        If you previously installed gratia-probe 2.9.1, please move any held records back into the 
+        processing directory for reprocessing:
+
+        1.   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
+            ```
+            $ condor_ce_config_val PER_JOB_HISTORY_DIR
+            ```
+        1.   Move quarantined gratia records back into the per job history dir:  
+            ```
+            mv $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history* \
+               $(condor_ce_config_val PER_JOB_HISTORY_DIR)
+            ```
+
+-   vo-client 142
+    -   Add voms2-*-.cern.ch VOMS servers
+
+-   [HTCondor 25.0.10](https://htcondor.readthedocs.io/en/25.0/version-history/lts-versions-25-0.html#version-25-0-10)
+    -   Add support for Ubuntu 26.04 (Resolute Raccoon)
+    -   Fix reporting of `RemoteUserCPU` in parallel universe
+    -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+    -   `condor_ssh_to_job` now enters the proper cgroup when using containers
+    -   HTCondor tarballs now contain Pelican 7.24.2
+-   Upcoming:
+    -   [HTCondor 25.10.1](https://htcondor.readthedocs.io/en/25.x/version-history/feature-versions-25-x.html#version-25-10-1)
+        -   Several improvements to throttle and monitor DAGMan resource usage
+        -   Can now automatically retry a job with a larger disk request
+        -   `.chirp.config` has been moved out of the job's scratch directory
+        -   Disables swap for jobs on cgroup v1 systems by default
+        -   Can now append columns to `condor_(qusers|status|who)` output
+        -   Allow URL style container images when file transfer is off
+        -   Improvements to handling batch universe jobs
+        -   Add support for Ubuntu 26.04 (Resolute Raccoon)
+        -   Fixed Access Point spooled X.509 job proxy refresh
+        -   Fix reporting of `RemoteUserCPU` in parallel universe
+        -   `condor_ssh_to_job` can now execute one-shot commands when using containers
+        -   `condor_ssh_to_job` now enters the proper cgroup when using containers
+        -   HTCondor tarballs now contain Pelican 7.24.2
+
 **April 23, 2026:** Pelican 7.24.2, gratia-probe 2.9.1, ospool-ap 25-2
 ----------------------------------------------------------------------------------------------------------------------
 -   [Pelican 7.24.2](https://github.com/PelicanPlatform/pelican/releases/tag/v7.24.2)
@@ -517,4 +561,3 @@ The following changes were made to packages in EL10:
 
 -   OSG WN Client:
     -   Removed gfal2 dependency as it is not supported on EL10
-
