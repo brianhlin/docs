@@ -146,16 +146,24 @@ with some tests, then with a steady ramp-up to full production.
 
 ### Validating contributions ###
 
-In addition to any internal validation processes that you may have, the OSG provides monitoring to view which
+In addition to any internal validation processes that you may have, the OSG provides two monitoring services to view which
 communities and projects within said communities are accessing your site, their fields of science, and home institution.
-Below is an example of the monitoring views that will be available for your cluster.
+Below are examples of the monitoring views that will be available for your cluster.
+
+#### CE Dashboard
+
+![dashboard graphs](img/ce_dashboard_graphs.png)
+
+To view your contributions, select your site from the site table on the
+[CE Dashboard](https://ce-dashboard.ospool.osg-htc.org/index.html) landing page.
+
+#### GRACC 
 
 ![monitoring graphs](img/monitoring_graphs.png)
 
 To view your contributions, select your site from the `Facility` dropdown of the
 [Payload job summary](https://gracc.opensciencegrid.org/d/000000043/pilot-jobs-summary?orgId=1) dashboard.
 Note that accounting data may take up to 24 hours to display.
-
 
 Reference
 ---------
