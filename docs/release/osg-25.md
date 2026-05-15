@@ -59,10 +59,10 @@ Updates to critical packages are also announced by email and are sent to the fol
 **May 14, 2026:** gratia-probe 2.9.2, vo-client 142, HTCondor 25.0.10; Upcoming: HTCondor 25.10.1
 ----------------------------------------------------------------------------------------------------------------------
 -   gratia-probe 2.9.2
-    -   Fixes bug in 2.9.1 that prevented record delivery
+    -   Fixes bug in 2.9.1 that prevented record delivery in the htcondor-ce probe
     
-    !!! bug "Issue in previous gratia-probe release"
-        If you previously installed gratia-probe 2.9.1, please move any held records back into the 
+    !!! bug "Issue in previous gratia-probe-htcondor-ce release"
+        If you previously installed gratia-probe-htcondor-ce 2.9.1, please move any held records back into the 
         processing directory for reprocessing:
 
         1.   Confirm that `PER_JOB_HISTORY_DIR` is set in your HTCondor config:  
@@ -73,6 +73,11 @@ Updates to critical packages are also announced by email and are sent to the fol
             ```
             mv $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history* \
                $(condor_ce_config_val PER_JOB_HISTORY_DIR)
+            ```
+        1.   gratia-probe-htcondor-ce uses only `RoutedJob` ads and will move any non-`RoutedJob` ad into quarantine 
+             even when functioning properly. Confirm that no re-quarantined records have a `RoutedJob` attribute:
+            ```
+            grep 'RoutedJob' $(condor_ce_config_val PER_JOB_HISTORY_DIR)/quarantine/history*
             ```
 
 -   vo-client 142
